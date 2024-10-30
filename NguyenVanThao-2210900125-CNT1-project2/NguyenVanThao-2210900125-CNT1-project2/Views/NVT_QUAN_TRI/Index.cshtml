@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NguyenVanThao_2210900125_CNT1_project2.Models.QUAN_TRI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tài Khoản Admin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr class="table-warning">
+        <th>
+            @Html.DisplayNameFor(model => model.Tai_khoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mat_khau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trang_thai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr class="table-success">
+    <td>
+        @Html.DisplayFor(modelItem => item.Tai_khoan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mat_khau)
+    </td>
+    <td>
+        @{ var statusText = item.Trang_thai.HasValue && item.Trang_thai.Value == 1 ? "Đang hoạt động" : "Không hoạt động"; }
+        <span class="@(item.Trang_thai == 1 ? "text-success" : "text-danger")">@statusText</span>
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Tai_khoan }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Tai_khoan }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Tai_khoan })
+    </td>
+</tr>
+}
+
+</table>

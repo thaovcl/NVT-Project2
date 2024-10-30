@@ -1,0 +1,58 @@
+﻿@model NguyenVanThao_2210900125_CNT1_project2.Models.DAT_TOUR
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DAT_TOUR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.So_luong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.So_luong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngay_dat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay_dat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trang_thai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trang_thai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACH_HANG.Ho_ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACH_HANG.Ho_ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOUR.Ten_tour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOUR.Ten_tour)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Ma_dat_tour }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<NguyenVanThao_2210900125_CNT1_project2.Models.DANH_GIA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Đánh giá</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr class="table-warning">
+        <th>
+            @Html.DisplayNameFor(model => model.Noi_dung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diem_so)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngay_danh_gia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KHACH_HANG.Ho_ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TOUR.Ten_tour)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="table-success">
+        <td>
+            @Html.DisplayFor(modelItem => item.Noi_dung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diem_so)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngay_danh_gia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KHACH_HANG.Ho_ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOUR.Ten_tour)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Ma_danh_gia }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Ma_danh_gia }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Ma_danh_gia })
+        </td>
+    </tr>
+}
+
+</table>

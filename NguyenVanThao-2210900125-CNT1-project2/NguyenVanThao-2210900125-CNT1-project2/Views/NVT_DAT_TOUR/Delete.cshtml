@@ -1,0 +1,64 @@
+﻿@model NguyenVanThao_2210900125_CNT1_project2.Models.DAT_TOUR
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DAT_TOUR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.So_luong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.So_luong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngay_dat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay_dat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trang_thai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trang_thai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACH_HANG.Ho_ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACH_HANG.Ho_ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOUR.Ten_tour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOUR.Ten_tour)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

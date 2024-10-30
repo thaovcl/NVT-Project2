@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NguyenVanThao_K22CNT1_Project2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DANH_GIA">
+          <Key>
+            <PropertyRef Name="Ma_danh_gia" />
+          </Key>
+          <Property Name="Ma_danh_gia" Type="int" Nullable="false" />
+          <Property Name="Ma_tour" Type="int" />
+          <Property Name="Ma_KH" Type="int" />
+          <Property Name="Noi_dung" Type="text" />
+          <Property Name="Diem_so" Type="tinyint" />
+          <Property Name="Ngay_danh_gia" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DAT_TOUR">
+          <Key>
+            <PropertyRef Name="Ma_dat_tour" />
+          </Key>
+          <Property Name="Ma_dat_tour" Type="int" Nullable="false" />
+          <Property Name="Ma_tour" Type="int" />
+          <Property Name="Ma_KH" Type="int" />
+          <Property Name="So_luong" Type="int" />
+          <Property Name="Ngay_dat" Type="datetime" />
+          <Property Name="Trang_thai" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="HOA_DON">
+          <Key>
+            <PropertyRef Name="Ma_hoa_don" />
+          </Key>
+          <Property Name="Ma_hoa_don" Type="int" Nullable="false" />
+          <Property Name="Ma_dat_tour" Type="int" />
+          <Property Name="Ngay_thanh_toan" Type="datetime" />
+          <Property Name="Tong_tien" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Phuong_thuc" Type="varchar" MaxLength="50" />
+          <Property Name="Trang_thai" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="Ma_KH" />
+          </Key>
+          <Property Name="Ma_KH" Type="int" Nullable="false" />
+          <Property Name="Ho_ten" Type="varchar" MaxLength="100" />
+          <Property Name="Tai_khoan" Type="varchar" MaxLength="50" />
+          <Property Name="Mat_khau" Type="varchar" MaxLength="32" />
+          <Property Name="Dia_chi" Type="varchar" MaxLength="200" />
+          <Property Name="Dien_thoai" Type="varchar" MaxLength="30" />
+          <Property Name="Ngay_sinh" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Ngay_tao" Type="datetime" />
+          <Property Name="Trang_thai" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="QUAN_TRI">
+          <Key>
+            <PropertyRef Name="Tai_khoan" />
+          </Key>
+          <Property Name="Tai_khoan" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mat_khau" Type="varchar" MaxLength="32" />
+          <Property Name="Trang_thai" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="Ma_Tour" />
+          </Key>
+          <Property Name="Ma_Tour" Type="int" Nullable="false" />
+          <Property Name="Ten_tour" Type="varchar" MaxLength="100" />
+          <Property Name="Mo_ta" Type="text" />
+          <Property Name="Gia_tour" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Thoi_gian" Type="int" />
+          <Property Name="Diem_khoi_hanh" Type="varchar" MaxLength="100" />
+          <Property Name="Diem_den" Type="varchar" MaxLength="100" />
+          <Property Name="Trang_thai" Type="tinyint" />
+        </EntityType>
+        <Association Name="FK__DANH_GIA__Ma_KH__74AE54BC">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+          <End Role="DANH_GIA" Type="Self.DANH_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="Ma_KH" />
+            </Principal>
+            <Dependent Role="DANH_GIA">
+              <PropertyRef Name="Ma_KH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANH_GIA__Ma_tou__73BA3083">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+          <End Role="DANH_GIA" Type="Self.DANH_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="Ma_Tour" />
+            </Principal>
+            <Dependent Role="DANH_GIA">
+              <PropertyRef Name="Ma_tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAT_TOUR__Ma_KH__6E01572D">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+          <End Role="DAT_TOUR" Type="Self.DAT_TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="Ma_KH" />
+            </Principal>
+            <Dependent Role="DAT_TOUR">
+              <PropertyRef Name="Ma_KH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAT_TOUR__Ma_tou__6D0D32F4">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+          <End Role="DAT_TOUR" Type="Self.DAT_TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="Ma_Tour" />
+            </Principal>
+            <Dependent Role="DAT_TOUR">
+              <PropertyRef Name="Ma_tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOA_DON__Ma_dat___70DDC3D8">
+          <End Role="DAT_TOUR" Type="Self.DAT_TOUR" Multiplicity="0..1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAT_TOUR">
+              <PropertyRef Name="Ma_dat_tour" />
+            </Principal>
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="Ma_dat_tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NguyenVanThao_K22CNT1_Project2ModelStoreContainer">
+          <EntitySet Name="DANH_GIA" EntityType="Self.DANH_GIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAT_TOUR" EntityType="Self.DAT_TOUR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DANH_GIA__Ma_KH__74AE54BC" Association="Self.FK__DANH_GIA__Ma_KH__74AE54BC">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="DANH_GIA" EntitySet="DANH_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANH_GIA__Ma_tou__73BA3083" Association="Self.FK__DANH_GIA__Ma_tou__73BA3083">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="DANH_GIA" EntitySet="DANH_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAT_TOUR__Ma_KH__6E01572D" Association="Self.FK__DAT_TOUR__Ma_KH__6E01572D">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAT_TOUR__Ma_tou__6D0D32F4" Association="Self.FK__DAT_TOUR__Ma_tou__6D0D32F4">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOA_DON__Ma_dat___70DDC3D8" Association="Self.FK__HOA_DON__Ma_dat___70DDC3D8">
+            <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NguyenVanThao_K22CNT1_Project2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DANH_GIA">
+          <Key>
+            <PropertyRef Name="Ma_danh_gia" />
+          </Key>
+          <Property Name="Ma_danh_gia" Type="Int32" Nullable="false" />
+          <Property Name="Ma_tour" Type="Int32" />
+          <Property Name="Ma_KH" Type="Int32" />
+          <Property Name="Noi_dung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Diem_so" Type="Byte" />
+          <Property Name="Ngay_danh_gia" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__DANH_GIA__Ma_KH__6383C8BA" FromRole="DANH_GIA" ToRole="KHACH_HANG" />
+          <NavigationProperty Name="TOUR" Relationship="Self.FK__DANH_GIA__Ma_tou__628FA481" FromRole="DANH_GIA" ToRole="TOUR" />
+        </EntityType>
+        <EntityType Name="DAT_TOUR">
+          <Key>
+            <PropertyRef Name="Ma_dat_tour" />
+          </Key>
+          <Property Name="Ma_dat_tour" Type="Int32" Nullable="false" />
+          <Property Name="Ma_tour" Type="Int32" />
+          <Property Name="Ma_KH" Type="Int32" />
+          <Property Name="So_luong" Type="Int32" />
+          <Property Name="Ngay_dat" Type="DateTime" Precision="3" />
+          <Property Name="Trang_thai" Type="Byte" />
+          <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__DAT_TOUR__Ma_KH__5CD6CB2B" FromRole="DAT_TOUR" ToRole="KHACH_HANG" />
+          <NavigationProperty Name="TOUR" Relationship="Self.FK__DAT_TOUR__Ma_tou__5BE2A6F2" FromRole="DAT_TOUR" ToRole="TOUR" />
+          <NavigationProperty Name="HOA_DON" Relationship="Self.FK__HOA_DON__Ma_dat___5FB337D6" FromRole="DAT_TOUR" ToRole="HOA_DON" />
+        </EntityType>
+        <EntityType Name="HOA_DON">
+          <Key>
+            <PropertyRef Name="Ma_hoa_don" />
+          </Key>
+          <Property Name="Ma_hoa_don" Type="Int32" Nullable="false" />
+          <Property Name="Ma_dat_tour" Type="Int32" />
+          <Property Name="Ngay_thanh_toan" Type="DateTime" Precision="3" />
+          <Property Name="Tong_tien" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Phuong_thuc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Trang_thai" Type="Byte" />
+          <NavigationProperty Name="DAT_TOUR" Relationship="Self.FK__HOA_DON__Ma_dat___5FB337D6" FromRole="HOA_DON" ToRole="DAT_TOUR" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="Ma_KH" />
+          </Key>
+          <Property Name="Ma_KH" Type="Int32" Nullable="false" />
+          <Property Name="Ho_ten" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tai_khoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mat_khau" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Dia_chi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dien_thoai" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ngay_tao" Type="DateTime" Precision="3" />
+          <Property Name="Trang_thai" Type="Byte" />
+          <NavigationProperty Name="DANH_GIA" Relationship="Self.FK__DANH_GIA__Ma_KH__6383C8BA" FromRole="KHACH_HANG" ToRole="DANH_GIA" />
+          <NavigationProperty Name="DAT_TOUR" Relationship="Self.FK__DAT_TOUR__Ma_KH__5CD6CB2B" FromRole="KHACH_HANG" ToRole="DAT_TOUR" />
+          <NavigationProperty Name="QUAN_TRI" Relationship="Self.FK__KHACH_HAN__Tai_k__571DF1D5" FromRole="KHACH_HANG" ToRole="QUAN_TRI" />
+          <Property Name="Ngay_sinh" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="QUAN_TRI">
+          <Key>
+            <PropertyRef Name="Tai_khoan" />
+          </Key>
+          <Property Name="Tai_khoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mat_khau" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Trang_thai" Type="Byte" />
+          <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__KHACH_HAN__Tai_k__571DF1D5" FromRole="QUAN_TRI" ToRole="KHACH_HANG" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="Ma_Tour" />
+          </Key>
+          <Property Name="Ma_Tour" Type="Int32" Nullable="false" />
+          <Property Name="Ten_tour" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mo_ta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gia_tour" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Thoi_gian" Type="Int32" />
+          <Property Name="Diem_khoi_hanh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Diem_den" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Trang_thai" Type="Byte" />
+          <NavigationProperty Name="DANH_GIA" Relationship="Self.FK__DANH_GIA__Ma_tou__628FA481" FromRole="TOUR" ToRole="DANH_GIA" />
+          <NavigationProperty Name="DAT_TOUR" Relationship="Self.FK__DAT_TOUR__Ma_tou__5BE2A6F2" FromRole="TOUR" ToRole="DAT_TOUR" />
+        </EntityType>
+        <Association Name="FK__DANH_GIA__Ma_KH__6383C8BA">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+          <End Role="DANH_GIA" Type="Self.DANH_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="Ma_KH" />
+            </Principal>
+            <Dependent Role="DANH_GIA">
+              <PropertyRef Name="Ma_KH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANH_GIA__Ma_tou__628FA481">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+          <End Role="DANH_GIA" Type="Self.DANH_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="Ma_Tour" />
+            </Principal>
+            <Dependent Role="DANH_GIA">
+              <PropertyRef Name="Ma_tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAT_TOUR__Ma_KH__5CD6CB2B">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+          <End Role="DAT_TOUR" Type="Self.DAT_TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="Ma_KH" />
+            </Principal>
+            <Dependent Role="DAT_TOUR">
+              <PropertyRef Name="Ma_KH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAT_TOUR__Ma_tou__5BE2A6F2">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+          <End Role="DAT_TOUR" Type="Self.DAT_TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="Ma_Tour" />
+            </Principal>
+            <Dependent Role="DAT_TOUR">
+              <PropertyRef Name="Ma_tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOA_DON__Ma_dat___5FB337D6">
+          <End Role="DAT_TOUR" Type="Self.DAT_TOUR" Multiplicity="0..1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAT_TOUR">
+              <PropertyRef Name="Ma_dat_tour" />
+            </Principal>
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="Ma_dat_tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHACH_HAN__Tai_k__571DF1D5">
+          <End Role="QUAN_TRI" Type="Self.QUAN_TRI" Multiplicity="0..1" />
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUAN_TRI">
+              <PropertyRef Name="Tai_khoan" />
+            </Principal>
+            <Dependent Role="KHACH_HANG">
+              <PropertyRef Name="Tai_khoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NguyenVanThao_K22CNT1_Project2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DANH_GIA" EntityType="Self.DANH_GIA" />
+          <EntitySet Name="DAT_TOUR" EntityType="Self.DAT_TOUR" />
+          <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" />
+          <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" />
+          <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" />
+          <EntitySet Name="TOURs" EntityType="Self.TOUR" />
+          <AssociationSet Name="FK__DANH_GIA__Ma_KH__6383C8BA" Association="Self.FK__DANH_GIA__Ma_KH__6383C8BA">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="DANH_GIA" EntitySet="DANH_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANH_GIA__Ma_tou__628FA481" Association="Self.FK__DANH_GIA__Ma_tou__628FA481">
+            <End Role="TOUR" EntitySet="TOURs" />
+            <End Role="DANH_GIA" EntitySet="DANH_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAT_TOUR__Ma_KH__5CD6CB2B" Association="Self.FK__DAT_TOUR__Ma_KH__5CD6CB2B">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAT_TOUR__Ma_tou__5BE2A6F2" Association="Self.FK__DAT_TOUR__Ma_tou__5BE2A6F2">
+            <End Role="TOUR" EntitySet="TOURs" />
+            <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOA_DON__Ma_dat___5FB337D6" Association="Self.FK__HOA_DON__Ma_dat___5FB337D6">
+            <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHACH_HAN__Tai_k__571DF1D5" Association="Self.FK__KHACH_HAN__Tai_k__571DF1D5">
+            <End Role="QUAN_TRI" EntitySet="QUAN_TRI" />
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NguyenVanThao_K22CNT1_Project2ModelStoreContainer" CdmEntityContainer="NguyenVanThao_K22CNT1_Project2Entities">
+          <EntitySetMapping Name="DANH_GIA">
+            <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.DANH_GIA">
+              <MappingFragment StoreEntitySet="DANH_GIA">
+                <ScalarProperty Name="Ma_danh_gia" ColumnName="Ma_danh_gia" />
+                <ScalarProperty Name="Ma_tour" ColumnName="Ma_tour" />
+                <ScalarProperty Name="Ma_KH" ColumnName="Ma_KH" />
+                <ScalarProperty Name="Noi_dung" ColumnName="Noi_dung" />
+                <ScalarProperty Name="Diem_so" ColumnName="Diem_so" />
+                <ScalarProperty Name="Ngay_danh_gia" ColumnName="Ngay_danh_gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAT_TOUR">
+            <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.DAT_TOUR">
+              <MappingFragment StoreEntitySet="DAT_TOUR">
+                <ScalarProperty Name="Ma_dat_tour" ColumnName="Ma_dat_tour" />
+                <ScalarProperty Name="Ma_tour" ColumnName="Ma_tour" />
+                <ScalarProperty Name="Ma_KH" ColumnName="Ma_KH" />
+                <ScalarProperty Name="So_luong" ColumnName="So_luong" />
+                <ScalarProperty Name="Ngay_dat" ColumnName="Ngay_dat" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOA_DON">
+            <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.HOA_DON">
+              <MappingFragment StoreEntitySet="HOA_DON">
+                <ScalarProperty Name="Ma_hoa_don" ColumnName="Ma_hoa_don" />
+                <ScalarProperty Name="Ma_dat_tour" ColumnName="Ma_dat_tour" />
+                <ScalarProperty Name="Ngay_thanh_toan" ColumnName="Ngay_thanh_toan" />
+                <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
+                <ScalarProperty Name="Phuong_thuc" ColumnName="Phuong_thuc" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACH_HANG">
+            <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.KHACH_HANG">
+              <MappingFragment StoreEntitySet="KHACH_HANG">
+                <ScalarProperty Name="Ngay_sinh" ColumnName="Ngay_sinh" />
+                <ScalarProperty Name="Ma_KH" ColumnName="Ma_KH" />
+                <ScalarProperty Name="Ho_ten" ColumnName="Ho_ten" />
+                <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
+                <ScalarProperty Name="Mat_khau" ColumnName="Mat_khau" />
+                <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
+                <ScalarProperty Name="Dien_thoai" ColumnName="Dien_thoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Ngay_tao" ColumnName="Ngay_tao" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUAN_TRI">
+            <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.QUAN_TRI">
+              <MappingFragment StoreEntitySet="QUAN_TRI">
+                <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
+                <ScalarProperty Name="Mat_khau" ColumnName="Mat_khau" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOURs">
+            <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.TOUR">
+              <MappingFragment StoreEntitySet="TOUR">
+                <ScalarProperty Name="Ma_Tour" ColumnName="Ma_Tour" />
+                <ScalarProperty Name="Ten_tour" ColumnName="Ten_tour" />
+                <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+                <ScalarProperty Name="Gia_tour" ColumnName="Gia_tour" />
+                <ScalarProperty Name="Thoi_gian" ColumnName="Thoi_gian" />
+                <ScalarProperty Name="Diem_khoi_hanh" ColumnName="Diem_khoi_hanh" />
+                <ScalarProperty Name="Diem_den" ColumnName="Diem_den" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

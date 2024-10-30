@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13d0934c9dfd47739a45c452e95b1528" Name="Diagram1">
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.DANH_GIA" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.DAT_TOUR" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.HOA_DON" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.KHACH_HANG" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.QUAN_TRI" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.TOUR" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DANH_GIA__Ma_KH__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DANH_GIA__Ma_tou__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DAT_TOUR__Ma_KH__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DAT_TOUR__Ma_tou__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__HOA_DON__Ma_dat___5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__KHACH_HAN__Tai_k__571DF1D5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
