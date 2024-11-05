@@ -1,0 +1,65 @@
+﻿@model NguyenVanThao_2210900125_Project2.Models.DANH_GIA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DANH_GIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Noi_dung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noi_dung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diem_so)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diem_so)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngay_danh_gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay_danh_gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACH_HANG.Ho_ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACH_HANG.Ho_ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOUR.Ten_tour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOUR.Ten_tour)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

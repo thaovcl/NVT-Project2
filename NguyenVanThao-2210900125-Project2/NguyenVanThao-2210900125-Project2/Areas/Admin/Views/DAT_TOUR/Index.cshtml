@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NguyenVanThao_2210900125_Project2.Models.DAT_TOUR>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Đặt Tour</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="table-warning">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.So_luong)</th>
+            <th>@Html.DisplayNameFor(model => model.Ngay_dat)</th>
+            <th>@Html.DisplayNameFor(model => model.Trang_thai)</th>
+            <th>@Html.DisplayNameFor(model => model.KHACH_HANG.Ho_ten)</th>
+            <th>@Html.DisplayNameFor(model => model.TOUR.Ten_tour)</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-success">
+                <td>@Html.DisplayFor(modelItem => item.So_luong)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ngay_dat)</td>
+                <td>
+                    @{
+                        var statusText = item.Trang_thai.HasValue && item.Trang_thai.Value == 1 ? "Đang hoạt động" : "Không hoạt động";
+                    }
+                    <span class="@(item.Trang_thai == 1 ? "text-success" : "text-danger")">@statusText</span>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.KHACH_HANG.Ho_ten)</td>
+                <td>@Html.DisplayFor(modelItem => item.TOUR.Ten_tour)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Ma_dat_tour }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Ma_dat_tour }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Bạn có chắc chắn muốn xóa không?');" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

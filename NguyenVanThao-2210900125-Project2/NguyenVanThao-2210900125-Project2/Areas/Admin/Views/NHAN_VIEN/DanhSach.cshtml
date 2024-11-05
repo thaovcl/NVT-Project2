@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Danh sách nhân viên</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-warning">
+        <tr>
+            <th>ID</th>
+            <th>Họ Tên</th>
+            <th>Chức Vụ</th>
+            <th>Ngày Sinh</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nhanVien in Model)
+        {
+            <tr class="table-success">
+                <td>@nhanVien.ID</td>
+                <td>@nhanVien.TenNhanVien</td>
+                <td>@nhanVien.ChucVu</td>
+                <td>@nhanVien.NgaySinh<td>
+                <td>
+                    @* Nút Edit *@
+                    @Html.ActionLink("Edit", "Edit", new { id = nhanVien.ID }, new { @class = "btn btn-primary btn-sm" })
+
+                    @* Nút Delete *@
+                    @Html.ActionLink("Delete", "Delete", new { id = nhanVien.ID }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
