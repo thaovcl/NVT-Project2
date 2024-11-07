@@ -31,7 +31,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Ten_tour)</td>
                 <td>@Html.DisplayFor(modelItem => item.Mo_ta)</td>
                 <td>@Html.DisplayFor(modelItem => item.Gia_tour)</td>
-                <td>@Html.DisplayFor(modelItem => item.Thoi_gian)</td>
+                <td>@string.Format("{0:dd-MM-yyyy}", item.Thoi_gian)</td>
                 <td>@Html.DisplayFor(modelItem => item.Diem_khoi_hanh)</td>
                 <td>@Html.DisplayFor(modelItem => item.Diem_den)</td>
                 <td>

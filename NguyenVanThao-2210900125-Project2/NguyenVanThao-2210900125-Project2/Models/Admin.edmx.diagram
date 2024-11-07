@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ba7f31126e364cdea021618b2b2e67ea" Name="Diagram1">
+      <Diagram DiagramId="1442b668ddbb412c9e480eaa9612b36d" Name="Diagram1">
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.CHUC_NANG" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.DANH_GIA" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.DAT_TOUR" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.HOA_DON" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.KHACH_HANG" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.QUAN_TRI" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.DAT_TOUR" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.HOA_DON" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.KHACH_HANG" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.NHAN_VIEN" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.PHAN_QUYEN" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.QUAN_TRI" Width="1.5" PointX="5.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.TOUR" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_CHUC_NANG1" ManuallyRouted="false" />
         <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DANH_GIA__Ma_KH__74AE54BC" ManuallyRouted="false" />
         <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DANH_GIA__Ma_tou__73BA3083" ManuallyRouted="false" />
         <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DAT_TOUR__Ma_KH__6E01572D" ManuallyRouted="false" />
         <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__DAT_TOUR__Ma_tou__6D0D32F4" ManuallyRouted="false" />
         <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK__HOA_DON__Ma_dat___70DDC3D8" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.CHUC_NANG" Width="1.5" PointX="8.375" PointY="8.5" />
-        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.NHAN_VIEN" Width="1.5" PointX="8.375" PointY="1" />
-        <EntityTypeShape EntityType="NguyenVanThao_K22CNT1_Project2Model.PHAN_QUYEN" Width="1.5" PointX="10.625" PointY="1.5" />
-        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_CHUC_NANG1" />
-        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_NHAN_VIEN" />
+        <AssociationConnector Association="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_NHAN_VIEN" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

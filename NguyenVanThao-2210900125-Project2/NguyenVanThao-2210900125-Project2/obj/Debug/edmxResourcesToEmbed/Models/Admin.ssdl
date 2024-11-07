@@ -95,7 +95,7 @@
     <Property Name="Ten_tour" Type="varchar" MaxLength="100" />
     <Property Name="Mo_ta" Type="text" />
     <Property Name="Gia_tour" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="Thoi_gian" Type="int" />
+    <Property Name="Thoi_gian" Type="datetime" />
     <Property Name="Diem_khoi_hanh" Type="varchar" MaxLength="100" />
     <Property Name="Diem_den" Type="varchar" MaxLength="100" />
     <Property Name="Hinh_anh" Type="nchar" MaxLength="10" />

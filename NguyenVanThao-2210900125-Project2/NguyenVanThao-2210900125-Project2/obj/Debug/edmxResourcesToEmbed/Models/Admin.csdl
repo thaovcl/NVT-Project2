@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="NguyenVanThao_K22CNT1_Project2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHUC_NANG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TenChucNang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaChucNang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHAN_QUYEN" Relationship="Self.FK_PHAN_QUYEN_CHUC_NANG1" FromRole="CHUC_NANG" ToRole="PHAN_QUYEN" />
+  </EntityType>
   <EntityType Name="DANH_GIA">
     <Key>
       <PropertyRef Name="Ma_danh_gia" />
@@ -56,6 +65,32 @@
     <NavigationProperty Name="DANH_GIA" Relationship="Self.FK__DANH_GIA__Ma_KH__74AE54BC" FromRole="KHACH_HANG" ToRole="DANH_GIA" />
     <NavigationProperty Name="DAT_TOUR" Relationship="Self.FK__DAT_TOUR__Ma_KH__6E01572D" FromRole="KHACH_HANG" ToRole="DAT_TOUR" />
   </EntityType>
+  <EntityType Name="NHAN_VIEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idloaiNhanVien" Type="Int32" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHAN_QUYEN" Relationship="Self.FK_PHAN_QUYEN_NHAN_VIEN" FromRole="NHAN_VIEN" ToRole="PHAN_QUYEN" />
+  </EntityType>
+  <EntityType Name="PHAN_QUYEN">
+    <Key>
+      <PropertyRef Name="idNhanVien" />
+      <PropertyRef Name="idChucNang" />
+    </Key>
+    <Property Name="idNhanVien" Type="Int32" Nullable="false" />
+    <Property Name="idChucNang" Type="Int32" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHUC_NANG" Relationship="Self.FK_PHAN_QUYEN_CHUC_NANG1" FromRole="PHAN_QUYEN" ToRole="CHUC_NANG" />
+    <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK_PHAN_QUYEN_NHAN_VIEN" FromRole="PHAN_QUYEN" ToRole="NHAN_VIEN" />
+  </EntityType>
   <EntityType Name="QUAN_TRI">
     <Key>
       <PropertyRef Name="Tai_khoan" />
@@ -72,14 +107,28 @@
     <Property Name="Ten_tour" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Mo_ta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Gia_tour" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Thoi_gian" Type="Int32" />
+    <Property Name="Thoi_gian" Type="DateTime" Precision="3" />
     <Property Name="Diem_khoi_hanh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Diem_den" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Hinh_anh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Trang_thai" Type="Byte" />
     <NavigationProperty Name="DANH_GIA" Relationship="Self.FK__DANH_GIA__Ma_tou__73BA3083" FromRole="TOUR" ToRole="DANH_GIA" />
     <NavigationProperty Name="DAT_TOUR" Relationship="Self.FK__DAT_TOUR__Ma_tou__6D0D32F4" FromRole="TOUR" ToRole="DAT_TOUR" />
-    <Property Name="Hinh_anh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
+  <Association Name="FK_PHAN_QUYEN_CHUC_NANG1">
+    <End Role="CHUC_NANG" Type="Self.CHUC_NANG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHAN_QUYEN" Type="Self.PHAN_QUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUC_NANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PHAN_QUYEN">
+        <PropertyRef Name="idChucNang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__DANH_GIA__Ma_KH__74AE54BC">
     <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
     <End Role="DANH_GIA" Type="Self.DANH_GIA" Multiplicity="*" />
@@ -140,13 +189,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PHAN_QUYEN_NHAN_VIEN">
+    <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHAN_QUYEN" Type="Self.PHAN_QUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHAN_VIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PHAN_QUYEN">
+        <PropertyRef Name="idNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="NguyenVanThao_K22CNT1_Project2Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHUC_NANG" EntityType="Self.CHUC_NANG" />
     <EntitySet Name="DANH_GIA" EntityType="Self.DANH_GIA" />
     <EntitySet Name="DAT_TOUR" EntityType="Self.DAT_TOUR" />
     <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" />
     <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" />
+    <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" />
+    <EntitySet Name="PHAN_QUYEN" EntityType="Self.PHAN_QUYEN" />
     <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" />
     <EntitySet Name="TOURs" EntityType="Self.TOUR" />
+    <AssociationSet Name="FK_PHAN_QUYEN_CHUC_NANG1" Association="Self.FK_PHAN_QUYEN_CHUC_NANG1">
+      <End Role="CHUC_NANG" EntitySet="CHUC_NANG" />
+      <End Role="PHAN_QUYEN" EntitySet="PHAN_QUYEN" />
+    </AssociationSet>
     <AssociationSet Name="FK__DANH_GIA__Ma_KH__74AE54BC" Association="Self.FK__DANH_GIA__Ma_KH__74AE54BC">
       <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
       <End Role="DANH_GIA" EntitySet="DANH_GIA" />
@@ -167,79 +237,9 @@
       <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
       <End Role="HOA_DON" EntitySet="HOA_DON" />
     </AssociationSet>
-    <EntitySet Name="CHUC_NANG" EntityType="NguyenVanThao_K22CNT1_Project2Model.CHUC_NANG" />
-    <EntitySet Name="NHAN_VIEN" EntityType="NguyenVanThao_K22CNT1_Project2Model.NHAN_VIEN" />
-    <EntitySet Name="PHAN_QUYEN" EntityType="NguyenVanThao_K22CNT1_Project2Model.PHAN_QUYEN" />
-    <AssociationSet Name="FK_PHAN_QUYEN_CHUC_NANG1" Association="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_CHUC_NANG1">
-      <End Role="CHUC_NANG" EntitySet="CHUC_NANG" />
-      <End Role="PHAN_QUYEN" EntitySet="PHAN_QUYEN" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PHAN_QUYEN_NHAN_VIEN" Association="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_NHAN_VIEN">
+    <AssociationSet Name="FK_PHAN_QUYEN_NHAN_VIEN" Association="Self.FK_PHAN_QUYEN_NHAN_VIEN">
       <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
       <End Role="PHAN_QUYEN" EntitySet="PHAN_QUYEN" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="CHUC_NANG">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="TenChucNang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MaChucNang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PHAN_QUYEN" Relationship="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_CHUC_NANG1" FromRole="CHUC_NANG" ToRole="PHAN_QUYEN" />
-  </EntityType>
-  <EntityType Name="NHAN_VIEN">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
-    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="idloaiNhanVien" Type="Int32" />
-    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PHAN_QUYEN" Relationship="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_NHAN_VIEN" FromRole="NHAN_VIEN" ToRole="PHAN_QUYEN" />
-  </EntityType>
-  <EntityType Name="PHAN_QUYEN">
-    <Key>
-      <PropertyRef Name="idNhanVien" />
-      <PropertyRef Name="idChucNang" />
-    </Key>
-    <Property Name="idNhanVien" Type="Int32" Nullable="false" />
-    <Property Name="idChucNang" Type="Int32" Nullable="false" />
-    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CHUC_NANG" Relationship="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_CHUC_NANG1" FromRole="PHAN_QUYEN" ToRole="CHUC_NANG" />
-    <NavigationProperty Name="NHAN_VIEN" Relationship="NguyenVanThao_K22CNT1_Project2Model.FK_PHAN_QUYEN_NHAN_VIEN" FromRole="PHAN_QUYEN" ToRole="NHAN_VIEN" />
-  </EntityType>
-  <Association Name="FK_PHAN_QUYEN_CHUC_NANG1">
-    <End Type="NguyenVanThao_K22CNT1_Project2Model.CHUC_NANG" Role="CHUC_NANG" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="NguyenVanThao_K22CNT1_Project2Model.PHAN_QUYEN" Role="PHAN_QUYEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CHUC_NANG">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="PHAN_QUYEN">
-        <PropertyRef Name="idChucNang" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PHAN_QUYEN_NHAN_VIEN">
-    <End Type="NguyenVanThao_K22CNT1_Project2Model.NHAN_VIEN" Role="NHAN_VIEN" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="NguyenVanThao_K22CNT1_Project2Model.PHAN_QUYEN" Role="PHAN_QUYEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NHAN_VIEN">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="PHAN_QUYEN">
-        <PropertyRef Name="idNhanVien" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

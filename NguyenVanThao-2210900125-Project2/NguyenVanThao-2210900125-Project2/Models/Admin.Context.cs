@@ -25,14 +25,14 @@ namespace NguyenVanThao_2210900125_Project2.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CHUC_NANG> CHUC_NANG { get; set; }
         public virtual DbSet<DANH_GIA> DANH_GIA { get; set; }
         public virtual DbSet<DAT_TOUR> DAT_TOUR { get; set; }
         public virtual DbSet<HOA_DON> HOA_DON { get; set; }
         public virtual DbSet<KHACH_HANG> KHACH_HANG { get; set; }
-        public virtual DbSet<QUAN_TRI> QUAN_TRI { get; set; }
-        public virtual DbSet<TOUR> TOURs { get; set; }
-        public virtual DbSet<CHUC_NANG> CHUC_NANG { get; set; }
         public virtual DbSet<NHAN_VIEN> NHAN_VIEN { get; set; }
         public virtual DbSet<PHAN_QUYEN> PHAN_QUYEN { get; set; }
+        public virtual DbSet<QUAN_TRI> QUAN_TRI { get; set; }
+        public virtual DbSet<TOUR> TOURs { get; set; }
     }
 }

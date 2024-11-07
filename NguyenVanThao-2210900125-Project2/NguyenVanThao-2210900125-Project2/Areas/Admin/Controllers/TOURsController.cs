@@ -35,22 +35,25 @@ namespace NguyenVanThao_2210900125_Project2.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (fileAnh != null && fileAnh.ContentLength > 0)
+                {
+                    // Lưu file
+                    string rootFolder = Server.MapPath("/Areas/Admin/Data/");
+                    string pathImage = rootFolder + fileAnh.FileName;
+                    fileAnh.SaveAs(pathImage);
+
+                    // Lưu thuộc tính url HinhAnh
+                    tOUR.Hinh_anh = "/Areas/Admin/Data/" + fileAnh.FileName;
+                }
+
                 db.TOURs.Add(tOUR);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            if(fileAnh.ContentLength > 0)
-            {
-                //Luu file
-                string rootFolder = Server.MapPath("/Areas/Admin/Data/");
-                string pathImage = rootFolder + fileAnh.FileName;
-                fileAnh.SaveAs(pathImage);
-                //Lưu thuộc tính url HinhAnh
-                tOUR.Hinh_anh = "/Areas/Admin/Data/" + fileAnh.FileName;
-            }
 
             return View(tOUR);
         }
+
 
         // GET: Admin/TOURs/Edit/5
         public ActionResult Edit(int? id)

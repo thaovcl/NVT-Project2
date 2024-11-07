@@ -1,0 +1,24 @@
+:root{
+    --white-color: #fff;
+    --black-color:#000;
+    --text-color:#333;
+    --primary-color:#EE4D2D;
+    --border-color:#dbdbdb;
+    --star-gold-color:#FFCE3E;
+
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.text-red{
+    color: red !important;
+}

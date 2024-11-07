@@ -21,7 +21,7 @@
                 <td>@nhanVien.ID</td>
                 <td>@nhanVien.TenNhanVien</td>
                 <td>@nhanVien.ChucVu</td>
-                <td>@nhanVien.NgaySinh<td>
+                <td>@string.Format("{0:dd-MM-yyyy}", nhanVien.NgaySinh)</td>
                 <td>
                     @* Nút Edit *@
                     @Html.ActionLink("Edit", "Edit", new { id = nhanVien.ID }, new { @class = "btn btn-primary btn-sm" })

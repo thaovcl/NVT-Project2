@@ -25,11 +25,11 @@ namespace NguyenVanThao_2210900125_Project2.Models
         public string Ten_tour { get; set; }
         public string Mo_ta { get; set; }
         public Nullable<decimal> Gia_tour { get; set; }
-        public Nullable<int> Thoi_gian { get; set; }
+        public Nullable<System.DateTime> Thoi_gian { get; set; }
         public string Diem_khoi_hanh { get; set; }
         public string Diem_den { get; set; }
-        public Nullable<byte> Trang_thai { get; set; }
         public string Hinh_anh { get; set; }
+        public Nullable<byte> Trang_thai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }

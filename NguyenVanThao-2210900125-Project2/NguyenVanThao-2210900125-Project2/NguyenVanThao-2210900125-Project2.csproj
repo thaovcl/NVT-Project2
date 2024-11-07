@@ -208,13 +208,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <EntityDeploy Include="Models\Admin.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Admin.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Admin.edmx.diagram">
-      <DependentUpon>Admin.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\KHACH_HANG\Create.cshtml" />
     <Content Include="Areas\Admin\Views\KHACH_HANG\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\KHACH_HANG\Edit.cshtml" />
@@ -239,11 +232,18 @@
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\DangNhap.cshtml" />
     <Content Include="Areas\Admin\Views\NHAN_VIEN\DanhSach.cshtml" />
-    <Content Include="Areas\Admin\Views\NHAN_VIEN\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NHAN_VIEN\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\BAO_LOI\KhongCoQuyen.cshtml" />
     <Content Include="Areas\Admin\Views\NHAN_VIEN\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TOURs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NHAN_VIEN\Edit.cshtml" />
+    <EntityDeploy Include="Models\Admin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Admin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Admin.edmx.diagram">
+      <DependentUpon>Admin.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

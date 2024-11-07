@@ -1,0 +1,432 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Website</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="./assets/css/header.css"> 
+        <link rel="stylesheet" href="./assets/css/base.css">
+        <link rel="stylesheet" href="./assets/css/container.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__scroll">
+                <div class="header__container">
+                    <div class="header__logo">
+                        <img src="./assets/img/logoheader.png" alt="Logo" class="header__logo-img">
+                        <h1>Travel</h1> 
+                    </div>
+                    <div class="header__action">
+                        <nav class="header__navbar">
+                            <ul class="header__navbar-list">
+                                <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Khách sạn</a></li>
+                                <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Vé máy bay</a></li>
+                                <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Vé xe khách</a></li>
+                                <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Đặt Tour</a></li>
+                                <li class="header__navbar-item">
+                                    <a href="#" class="header__navbar-item-link">
+                                        Hỗ trợ
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="header__navbar-item-subnav">
+                                        <li><a href="#">Trợ giúp</a></li>
+                                        <li><a href="#">Liên hệ</a></li>
+                                    </ul>
+                                </li>
+                                <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Khuyến mãi</a></li>
+                            </ul>
+                        </nav>
+                        <a href="#" class="header__action-link">
+                            <i class="fa-solid fa-user"></i>
+                            Đăng Nhập
+                        </a>
+                        <a href="#" class="header__action-button">Đăng Ký</a>
+                    </div>
+                </div>
+            
+                <hr class="divider">
+                <nav class="additional-navbar">
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Đưa đón sân bay</a></li>
+                        <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Cho thuê xe</a></li>
+                        <li class="header__navbar-item"><a href="#" class="header__navbar-item-link">Đặt chỗ của tôi</a></li>
+                        <li class="header__navbar-item">
+                            <a href="#" class="header__navbar-item-link">
+                                More
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+                            <ul class="header__navbar-item-subnav">
+                                <li><a href="#">Vé máy bay</a></li>
+                                <li><a href="#">Vé xe khách</a></li>
+                                <li><a href="#">Combo</a></li>
+                                <li><a href="#">Du thuyền</a></li>
+                                <li><a href="#">Quà tặng</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="header__tagline">
+                <p>Từ Việt Nam Đến Thế Giới, Trong Tầm Tay Bạn</p>
+            </div>
+
+            <div class="header__select">
+                <li class="header__select-array">
+                    <button class="header__select-array-button" id="hotelButton">
+                        <i class="fa-solid fa-hotel"></i>
+                        Khách sạn
+                    </button>
+                    <button class="header__select-array-button" id="flightButton">
+                        <i class="fa-solid fa-plane"></i>
+                        Vé máy bay
+                    </button>
+                    <button class="header__select-array-button" id="busButton">
+                        <i class="fa-solid fa-bus"></i>
+                        Vé xe khách
+                    </button>
+                    <button class="header__select-array-button" id="airportTransferButton" >
+                        <i class="fa-solid fa-van-shuttle"></i>
+                        Đưa đón sân bay
+                    </button>
+                    <button class="header__select-array-button" id="carrentalButton" >
+                        <i class="fa-solid fa-car"></i>
+                        Cho thuê xe
+                    </button>
+                    <button class="header__select-array-button" id="activityButton">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        Hoạt động & vui chơi
+                    </button>
+                    <button class="header__select-array-button" id="otherButton">
+                        <i class="fa-solid fa-grip"></i>
+                        Khác
+                    </button>
+                    <hr class="divider-select">
+                    
+                    <div class="hotel-form" id="hotelForm" style="display: block;">
+                        <!-- Form khách sạn -->
+                        <div class="array__form-row">
+                            <div class="array__form-group">
+                                <label for="city">Thành phố</label>
+                                <i class="fa-solid fa-location-dot"></i> :
+                                <input type="text" id="city" name="city" placeholder="Thành phố, khách sạn, điểm đến" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="checkin">Ngày nhận phòng :</label>
+                                <input type="date" id="checkin" name="checkin" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="checkout">Ngày trả phòng :</label>
+                                <input type="date" id="checkout" name="checkout" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="guests">Khách và Phòng :</label>
+                                <div class="array__form-group-input">
+                                    <input type="number" id="guests" name="guests" min="1" placeholder="Khách" required>
+                                    <input type="number" id="rooms" name="rooms" min="1" placeholder="Phòng" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="array__form-row">
+                            <button type="submit" class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>                
+            
+                    <div class="flight-form" id="flightForm" style="display: none;">
+                        <!-- Form vé máy bay -->
+                        <div class="array__form-row">
+                            <div class="array__form-group">
+                                <label for="from">Từ :</label>
+                                <input type="text" id="from" name="from" placeholder="Nơi khởi hành" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="to">Đến :</label>
+                                <input type="text" id="to" name="to" placeholder="Nơi đến" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="departure-date">Ngày đi :</label>
+                                <input type="date" id="departure-date" name="departure-date" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="return-date">Khứ hồi :</label>
+                                <input type="date" id="return-date" name="return-date">
+                            </div>
+                        </div>
+                        <div class="array__form-row">
+                            <div class="array__form-group small">
+                                <label for="passengers">Số người :</label>
+                                <input type="number" id="passengers" name="passengers" min="1" placeholder="Số người" required>
+                            </div>
+                            <div class="array__form-group small">
+                                <label for="class">Hạng ghế :</label>
+                                <select id="class" name="class">
+                                    <option value="economy">Phổ thông</option>
+                                    <option value="business">Thương gia</option>
+                                    <option value="first">Hạng nhất</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>                
+                    
+                    <div class="bus-form" id="busForm" style="display: none;">
+                        <!--Form Vé xe khách -->
+                        <div class="array__form-row">
+                            <div class="array__form-group">
+                                <label for="bus-from">Từ :</label>
+                                <input type="text" id="bus-from" name="from" placeholder="Nơi khởi hành" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="bus-to">Đến :</label>
+                                <input type="text" id="bus-to" name="to" placeholder="Nơi đến" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="bus-departure-date">Ngày khởi hành :</label>
+                                <input type="date" id="bus-departure-date" name="departure-date" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="bus-return-date">Khứ hồi :</label>
+                                <input type="date" id="bus-return-date" name="return-date" placeholder="Chọn ngày về">
+                            </div>
+                            <div class="array__form-group seats-group">
+                                <label for="bus-seats">Số ghế :</label>
+                                <input type="number" id="bus-seats" name="seats" min="1" max="10" value="1" required>
+                            </div>
+                        </div>
+                        <div class="array__form-row">
+                            <button type="submit" class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="airport-transfer-form" id="airportTransferForm" style="display: none;">
+                        <!-- Form đưa đón sân bay -->
+                        <div class="array__form-row">
+                            <div class="array__form-group">
+                                <label for="transfer-from">Từ sân bay :</label>
+                                <input type="text" id="transfer-from" name="transfer-from" placeholder="Tên sân bay" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="transfer-to">Đến :</label>
+                                <input type="text" id="transfer-to" name="transfer-to" placeholder="Khu vực, địa chỉ, tòa nhà" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="transfer-date">Ngày đón :</label>
+                                <input type="date" id="transfer-date" name="transfer-date" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="transfer-time">Giờ đón :</label>
+                                <input type="time" id="transfer-time" name="transfer-time" required>
+                            </div>
+                        </div>
+                        <div class="array__form-row">
+                            <button type="submit" class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="car-rental-form" id="carrentalForm" style="display: none;">
+                        <!-- Form cho thuê xe -->
+                        <div class="array__form-row">
+                            <div class="array__form-group">
+                                <label for="pickup-location">Địa điểm thuê xe:</label>
+                                <input type="text" id="pickup-location" name="pickup-location" placeholder="Địa điểm thuê xe" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="pickup-date">Ngày bắt đầu:</label>
+                                <input type="date" id="pickup-date" name="pickup-date" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="pickup-time">Giờ bắt đầu:</label>
+                                <input type="time" id="pickup-time" name="pickup-time" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="return-date">Ngày kết thúc:</label>
+                                <input type="date" id="return-date" name="return-date" required>
+                            </div>
+                            <div class="array__form-group">
+                                <label for="return-time">Giờ kết thúc:</label>
+                                <input type="time" id="return-time" name="return-time" required>
+                            </div>
+                        </div>
+                        <!-- Nút Tự Lái và Có Tài Xế -->
+                        <div class="car-rental-options">
+                            <button type="button" class="car-rental-options-button" data-option="self-drive">
+                                <i class="fa-solid fa-car"></i>Tự lái
+                            </button>
+                            <button type="button" class="car-rental-options-button" data-option="with-driver">
+                                <i class="fa-solid fa-user"></i>
+                                Có tài xế
+                            </button>
+                        </div>
+                        <div class="array__form-row">
+                            <button type="submit" class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Form cho Hoạt động & vui chơi -->
+                    <div class="activity-form" id="activityForm" style="display: none;">
+                        <div class="array__form-row">
+                            <div class="array__form-group">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="activity-search" placeholder="Bạn có ý tưởng gì cho chuyến đi tiếp theo không?" />
+                            </div>
+                            <div class="array__form-row">
+                                <button type="submit" class="search-button">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <!-- Form Khác -->
+                    <div class="other-form" id="otherForm" style="display: none;">
+
+                    </div>
+
+                </li>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="container__banner">
+                <div class="container__banner-offer-section">
+                    <div class="container__banner-offer-section-new">
+                        <div class="container__banner-lable">
+                            <p class="text-red">🤩 Đang diễn ra</p>
+                        </div>
+                        <div class="container__banner-offer-img">
+                            <img src="./assets/img/offer 11.11.webp" alt="">
+                        </div>
+                    </div>                    
+                    <div class="container__banner-offer-section-new">
+                        <div class="container__banner-lable">
+                            <p>Ưu đãi dành cho bạn mới</p>
+                        </div>
+                        <div class="container__banner-offer-img">
+                            <img src="./assets/img/offer new.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="container__banner-offer-section-new">
+                        <div class="container__banner-lable">
+                            <p>Săn Vé Máy Bay Tết</p> 
+                        </div>
+                        <div class="container__banner-offer-img">
+                            <img src="./assets/img/offer tet.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="container__banner-offer-section-new">
+                        <div class="container__banner-lable">
+                            <p>Nâng tầm chuyến đi theo cách bạn muốn</p>
+                        </div>
+                        <div class="container__banner-offer-animate">
+                            <div class="banner-animate">
+                                <a href="#" class="banner-item">
+                                    <img src="./assets/img/banner1.jpg" alt="Điểm đến 1">
+                                    <p>Chuyến đi và Danh thắng</p>
+                                </a>
+                            </div>
+                            <div class="banner-animate">
+                                <a href="#" class="banner-item">
+                                    <img src="./assets/img/banner2.jpg" alt="Điểm đến 2">
+                                    <p>Fun Activities</p>
+                                </a>
+                            </div>
+                            <div class="banner-animate">
+                                <a href="#" class="banner-item">
+                                    <img src="./assets/img/banner3.jpg" alt="Điểm đến 3">
+                                    <p>Travel Insurance</p>
+                                </a>
+                            </div>
+                            <div class="banner-animate">
+                                <a href="#" class="banner-item">
+                                    <img src="./assets/img/banner4.jpg" alt="Điểm đến 4">
+                                    <p>Đặt trước, trả sau</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container__tourist">
+                <div class="container__tourist-text">
+                    <h2>
+                        <img src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=q-40,h-24"
+                             importance="low" loading="lazy"
+                             srcset="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=q-40,h-24 1x, https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=dpr-2,q-40,h-24 2x, https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=dpr-3,q-40,h-24 3x"
+                             height="24" class="icon" alt="icon"> 
+                        Top Điểm đến được yêu thích
+                    </h2>
+                </div>
+                <div class="container__tourist-options">
+                    <button class="container__tourist-options-button">Việt Nam</button>
+                    <button class="container__tourist-options-button">Thái Lan</button>
+                    <button class="container__tourist-options-button">Singapore</button>
+                    <button class="container__tourist-options-button">Malaysia</button>
+                    <button class="container__tourist-options-button">Hàn Quốc</button>
+                </div>
+                <div class="container__tourist-list">
+                    <div class="container__tourist-item">
+                        <img src="./assets/img/HN-TPHCM.webp" alt="Điểm đến">
+                        <p class="head">Vietravel Airlines</p>
+                        <div class="details">
+                            <p class="route">Hà Nội - TP HCM</p>
+                            <p class="date">22 tháng 11 2024</p>
+                            <p class="old-price">1.326.440 VND</p>
+                            <p class="new-price">1.321.360 VND</p>
+                        </div>
+                    </div>                                       
+                    <div class="container__tourist-item">
+                        <img src="./assets/img/HN_DN.webp" alt="Điểm đến">
+                        <p class="head">Vietravel Airlines</p>
+                        <div class="details">
+                            <p class="route">Hà Nội - Đà Nẵng</p>
+                            <p class="date">26 tháng 11 2024</p>
+                            <p class="old-price">916.040 VND</p>
+                            <p class="new-price">892.515 VND</p>
+                        </div>
+                    </div>
+                    <div class="container__tourist-item">
+                        <img src="./assets/img/TPHCM-HN.webp" alt="Điểm đến">
+                        <p class="head">Vietravel Airlines</p>
+                        <div class="details">
+                            <p class="route">TP HCM - Hà Nội</p>
+                            <p class="date">27 tháng 11 2024</p>
+                            <p class="old-price">1.326.440 VND</p>
+                            <p class="new-price">1.321.360 VND</p>
+                        </div>
+                    </div>
+                    <div class="container__tourist-item">
+                        <img src="./assets/img/DN_DL.webp" alt="Điểm đến">
+                        <p class="head">VietJet Air</p>
+                        <div class="details">
+                        <p class="route">Đà Nẵng - Đà Lạt</p>
+                        <p class="date">17 tháng 12 2024</p>
+                        <p class="new-price">922.365 VND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+
+        </div>
+        <footer class="footer">
+        </footer>
+
+        <script src="./js/main.js"></script>
+        <script src="./js/carrental.js"></script>
+    </body>
+    </html>
