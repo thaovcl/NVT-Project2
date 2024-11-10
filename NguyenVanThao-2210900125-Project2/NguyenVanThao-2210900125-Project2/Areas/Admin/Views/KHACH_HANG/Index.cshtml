@@ -21,7 +21,6 @@
             <th>Điện thoại</th>
             <th>Ngày sinh</th>
             <th>Email</th>
-            <th>Ngày tạo</th>
             <th>Trạng thái</th>
             <th>Hành động</th>
         </tr>
@@ -38,7 +37,6 @@
             <td>@Html.DisplayFor(modelItem => item.Dien_thoai)</td>
             <td>@string.Format("{0:dd-MM-yyyy}", item.Ngay_sinh)</td>
             <td>@Html.DisplayFor(modelItem => item.Email)</td>
-            <td>@string.Format("{0:dd-MM-yyyy}", item.Ngay_tao)</td>
             <td>
                 @{
                     var statusText = item.Trang_thai.HasValue && item.Trang_thai.Value == 1 ? "Đang hoạt động" : "Không hoạt động";

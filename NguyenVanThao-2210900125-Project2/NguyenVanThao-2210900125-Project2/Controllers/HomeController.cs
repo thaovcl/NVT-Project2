@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NguyenVanThao_2210900125_Project2.Models;
 
 namespace NguyenVanThao_2210900125_Project2.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult TrangChu()
         {
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Register()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult Register(int a)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("TrangChu");
         }
     }
 }

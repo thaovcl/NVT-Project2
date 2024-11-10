@@ -17,7 +17,7 @@ namespace NguyenVanThao_2210900125_Project2.Areas.Admin.Controllers
         // GET: Admin/HOA_DON
         public ActionResult Index()
         {
-            var hOA_DON = db.HOA_DON.Include(h => h.DAT_TOUR);
+            var hOA_DON = db.HOA_DON.Include(h => h.ID);
             return View(hOA_DON.ToList());
         }
 

@@ -17,7 +17,7 @@ namespace NguyenVanThao_2210900125_Project2.Areas.Admin.Controllers
         // GET: Admin/DANH_GIA
         public ActionResult Index()
         {
-            var dANH_GIA = db.DANH_GIA.Include(d => d.KHACH_HANG).Include(d => d.TOUR);
+            var dANH_GIA = db.DANH_GIA.Include(d => d.KHACH_HANG).Include(d => d.Ma_KH);
             return View(dANH_GIA.ToList());
         }
 

@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="NguyenVanThao_K22CNT1_Project2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Album Anh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TenAlbum" Type="nvarchar" MaxLength="500" />
+    <Property Name="NguoiDang" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThoiGian" Type="datetime" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+  </EntityType>
   <EntityType Name="CHUC_NANG">
     <Key>
       <PropertyRef Name="ID" />
@@ -29,6 +39,15 @@
     <Property Name="So_luong" Type="int" />
     <Property Name="Ngay_dat" Type="datetime" />
     <Property Name="Trang_thai" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="HinhAnh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idAlbum" Type="int" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="500" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="HOA_DON">
     <Key>
@@ -66,9 +85,8 @@
     <Property Name="TenNhanVien" Type="nvarchar" MaxLength="50" />
     <Property Name="SDT" Type="nvarchar" MaxLength="50" />
     <Property Name="NgaySinh" Type="datetime" />
-    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
-    <Property Name="idloaiNhanVien" Type="int" />
-    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="HinhAnh" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="PHAN_QUYEN">
     <Key>
@@ -79,14 +97,6 @@
     <Property Name="idChucNang" Type="int" Nullable="false" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="QUAN_TRI">
-    <Key>
-      <PropertyRef Name="Tai_khoan" />
-    </Key>
-    <Property Name="Tai_khoan" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Mat_khau" Type="varchar" MaxLength="32" />
-    <Property Name="Trang_thai" Type="tinyint" />
-  </EntityType>
   <EntityType Name="TOUR">
     <Key>
       <PropertyRef Name="Ma_Tour" />
@@ -95,10 +105,11 @@
     <Property Name="Ten_tour" Type="varchar" MaxLength="100" />
     <Property Name="Mo_ta" Type="text" />
     <Property Name="Gia_tour" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="Thoi_gian" Type="datetime" />
+    <Property Name="So_nguoi" Type="int" />
+    <Property Name="Thoi_gian" Type="float" />
     <Property Name="Diem_khoi_hanh" Type="varchar" MaxLength="100" />
     <Property Name="Diem_den" Type="varchar" MaxLength="100" />
-    <Property Name="Hinh_anh" Type="nchar" MaxLength="10" />
+    <Property Name="Hinh_anh" Type="nvarchar" MaxLength="500" />
     <Property Name="Trang_thai" Type="tinyint" />
   </EntityType>
   <Association Name="FK__DANH_GIA__Ma_KH__74AE54BC">
@@ -161,6 +172,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_HinhAnh_Album Anh">
+    <End Role="Album Anh" Type="Self.Album Anh" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album Anh">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HinhAnh">
+        <PropertyRef Name="idAlbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PHAN_QUYEN_CHUC_NANG1">
     <End Role="CHUC_NANG" Type="Self.CHUC_NANG" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -190,14 +215,15 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="NguyenVanThao_K22CNT1_Project2ModelStoreContainer">
+    <EntitySet Name="Album Anh" EntityType="Self.Album Anh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CHUC_NANG" EntityType="Self.CHUC_NANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DANH_GIA" EntityType="Self.DANH_GIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DAT_TOUR" EntityType="Self.DAT_TOUR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HinhAnh" EntityType="Self.HinhAnh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHAN_QUYEN" EntityType="Self.PHAN_QUYEN" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__DANH_GIA__Ma_KH__74AE54BC" Association="Self.FK__DANH_GIA__Ma_KH__74AE54BC">
       <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
@@ -218,6 +244,10 @@
     <AssociationSet Name="FK__HOA_DON__Ma_dat___70DDC3D8" Association="Self.FK__HOA_DON__Ma_dat___70DDC3D8">
       <End Role="DAT_TOUR" EntitySet="DAT_TOUR" />
       <End Role="HOA_DON" EntitySet="HOA_DON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HinhAnh_Album Anh" Association="Self.FK_HinhAnh_Album Anh">
+      <End Role="Album Anh" EntitySet="Album Anh" />
+      <End Role="HinhAnh" EntitySet="HinhAnh" />
     </AssociationSet>
     <AssociationSet Name="FK_PHAN_QUYEN_CHUC_NANG1" Association="Self.FK_PHAN_QUYEN_CHUC_NANG1">
       <End Role="CHUC_NANG" EntitySet="CHUC_NANG" />

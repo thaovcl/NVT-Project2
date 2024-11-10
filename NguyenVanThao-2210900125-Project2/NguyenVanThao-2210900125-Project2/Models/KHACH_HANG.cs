@@ -17,24 +17,21 @@ namespace NguyenVanThao_2210900125_Project2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACH_HANG()
         {
-            this.DANH_GIA = new HashSet<DANH_GIA>();
-            this.DAT_TOUR = new HashSet<DAT_TOUR>();
+            this.HOA_DON = new HashSet<HOA_DON>();
         }
     
-        public int Ma_KH { get; set; }
+        public int ID { get; set; }
+        public string Ma_KH { get; set; }
         public string Ho_ten { get; set; }
-        public string Tai_khoan { get; set; }
-        public string Mat_khau { get; set; }
         public string Dia_chi { get; set; }
         public string Dien_thoai { get; set; }
         public Nullable<System.DateTime> Ngay_sinh { get; set; }
         public string Email { get; set; }
+        public string Mat_khau { get; set; }
         public Nullable<System.DateTime> Ngay_tao { get; set; }
         public Nullable<byte> Trang_thai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DAT_TOUR> DAT_TOUR { get; set; }
+        public virtual ICollection<HOA_DON> HOA_DON { get; set; }
     }
 }

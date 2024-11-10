@@ -65,15 +65,14 @@
     <EntitySetMapping Name="NHAN_VIEN">
       <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.NHAN_VIEN">
         <MappingFragment StoreEntitySet="NHAN_VIEN">
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
-          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-          <ScalarProperty Name="idloaiNhanVien" ColumnName="idloaiNhanVien" />
-          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,18 +85,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="QUAN_TRI">
-      <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.QUAN_TRI">
-        <MappingFragment StoreEntitySet="QUAN_TRI">
-          <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
-          <ScalarProperty Name="Mat_khau" ColumnName="Mat_khau" />
-          <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TOURs">
       <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.TOUR">
         <MappingFragment StoreEntitySet="TOUR">
+          <ScalarProperty Name="So_nguoi" ColumnName="So_nguoi" />
           <ScalarProperty Name="Ma_Tour" ColumnName="Ma_Tour" />
           <ScalarProperty Name="Ten_tour" ColumnName="Ten_tour" />
           <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
@@ -107,6 +98,27 @@
           <ScalarProperty Name="Diem_den" ColumnName="Diem_den" />
           <ScalarProperty Name="Hinh_anh" ColumnName="Hinh_anh" />
           <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Album_Anhs">
+      <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.Album_Anh">
+        <MappingFragment StoreEntitySet="Album Anh">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+          <ScalarProperty Name="TenAlbum" ColumnName="TenAlbum" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HinhAnhs">
+      <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.HinhAnh">
+        <MappingFragment StoreEntitySet="HinhAnh">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="idAlbum" ColumnName="idAlbum" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

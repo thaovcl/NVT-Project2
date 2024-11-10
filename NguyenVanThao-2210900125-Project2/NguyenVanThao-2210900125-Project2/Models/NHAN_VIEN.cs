@@ -26,9 +26,8 @@ namespace NguyenVanThao_2210900125_Project2.Models
         public string TenNhanVien { get; set; }
         public string SDT { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
-        public string DiaChi { get; set; }
-        public Nullable<int> idloaiNhanVien { get; set; }
-        public string ChucVu { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
+        public string HinhAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHAN_QUYEN> PHAN_QUYEN { get; set; }

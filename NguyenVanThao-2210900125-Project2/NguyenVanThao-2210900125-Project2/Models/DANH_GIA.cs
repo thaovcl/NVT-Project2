@@ -15,13 +15,10 @@ namespace NguyenVanThao_2210900125_Project2.Models
     public partial class DANH_GIA
     {
         public int Ma_danh_gia { get; set; }
-        public Nullable<int> Ma_tour { get; set; }
+        public int Ma_tour { get; set; }
         public Nullable<int> Ma_KH { get; set; }
         public string Noi_dung { get; set; }
         public Nullable<byte> Diem_so { get; set; }
         public Nullable<System.DateTime> Ngay_danh_gia { get; set; }
-    
-        public virtual KHACH_HANG KHACH_HANG { get; set; }
-        public virtual TOUR TOUR { get; set; }
     }
 }

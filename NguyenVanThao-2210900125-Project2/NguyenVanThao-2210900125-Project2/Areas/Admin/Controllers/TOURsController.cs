@@ -75,7 +75,7 @@ namespace NguyenVanThao_2210900125_Project2.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Ma_Tour,Ten_tour,Mo_ta,Gia_tour,Thoi_gian,Diem_khoi_hanh,Diem_den,Trang_thai")] TOUR tOUR)
+        public ActionResult Edit(TOUR tOUR)
         {
             if (ModelState.IsValid)
             {

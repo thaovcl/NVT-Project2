@@ -14,13 +14,23 @@ namespace NguyenVanThao_2210900125_Project2.Models
     
     public partial class HOA_DON
     {
-        public int Ma_hoa_don { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOA_DON()
+        {
+            this.CT_HOA_DON = new HashSet<CT_HOA_DON>();
+        }
+    
+        public int ID { get; set; }
+        public Nullable<int> Ma_hoa_don { get; set; }
+        public Nullable<int> Ma_KH { get; set; }
         public Nullable<int> Ma_dat_tour { get; set; }
         public Nullable<System.DateTime> Ngay_thanh_toan { get; set; }
         public Nullable<decimal> Tong_tien { get; set; }
         public string Phuong_thuc { get; set; }
         public Nullable<byte> Trang_thai { get; set; }
     
-        public virtual DAT_TOUR DAT_TOUR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_HOA_DON> CT_HOA_DON { get; set; }
+        public virtual KHACH_HANG KHACH_HANG { get; set; }
     }
 }

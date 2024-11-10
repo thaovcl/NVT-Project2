@@ -17,23 +17,24 @@ namespace NguyenVanThao_2210900125_Project2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TOUR()
         {
-            this.DANH_GIA = new HashSet<DANH_GIA>();
-            this.DAT_TOUR = new HashSet<DAT_TOUR>();
+            this.CT_HOA_DON = new HashSet<CT_HOA_DON>();
         }
     
-        public int Ma_Tour { get; set; }
+        public int ID { get; set; }
+        public string Ma_Tour { get; set; }
         public string Ten_tour { get; set; }
         public string Mo_ta { get; set; }
         public Nullable<decimal> Gia_tour { get; set; }
-        public Nullable<System.DateTime> Thoi_gian { get; set; }
+        public Nullable<int> So_nguoi { get; set; }
+        public Nullable<double> Thoi_gian { get; set; }
         public string Diem_khoi_hanh { get; set; }
         public string Diem_den { get; set; }
         public string Hinh_anh { get; set; }
         public Nullable<byte> Trang_thai { get; set; }
+        public Nullable<int> Ma_loai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DAT_TOUR> DAT_TOUR { get; set; }
+        public virtual ICollection<CT_HOA_DON> CT_HOA_DON { get; set; }
+        public virtual LOAI_TOUR LOAI_TOUR { get; set; }
     }
 }

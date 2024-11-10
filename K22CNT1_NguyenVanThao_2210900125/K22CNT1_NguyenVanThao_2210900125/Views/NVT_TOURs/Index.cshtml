@@ -1,0 +1,23 @@
+﻿@model IEnumerable<K22CNT1_NguyenVanThao_2210900125.Models.TOUR>
+
+@{
+    ViewBag.Title = "Danh sách tour";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+     {
+        <div class="col-md-3 mt-3">
+            <div class="card w-100">
+                <img src="@item.Hinh_anh" class="card-img-top" alt="@item.Ten_tour">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Ten_tour</h5>
+                    <p>Giá: <span class="text-danger">@item.Gia_tour.Value.ToString("#,##0")</span></p>
+                    <a href="#" class="btn btn-primary">Đặt Tour</a>
+                </div>
+            </div>
+        </div>  
+     }
+    
+</div>
+

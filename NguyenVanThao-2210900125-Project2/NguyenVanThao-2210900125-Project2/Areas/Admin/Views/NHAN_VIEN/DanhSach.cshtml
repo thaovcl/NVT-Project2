@@ -9,27 +9,31 @@
         <tr>
             <th>ID</th>
             <th>Họ Tên</th>
-            <th>Chức Vụ</th>
+            <th>SDT</th>
             <th>Ngày Sinh</th>
+            <th>Hình Ảnh</th>
             <th>Hành động</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var nhanVien in Model)
+        @foreach (var item in Model)
         {
-            <tr class="table-success">
-                <td>@nhanVien.ID</td>
-                <td>@nhanVien.TenNhanVien</td>
-                <td>@nhanVien.ChucVu</td>
-                <td>@string.Format("{0:dd-MM-yyyy}", nhanVien.NgaySinh)</td>
-                <td>
-                    @* Nút Edit *@
-                    @Html.ActionLink("Edit", "Edit", new { id = nhanVien.ID }, new { @class = "btn btn-primary btn-sm" })
+        <tr class="table-success">
+            <td>@item.ID</td>
+            <td>@item.TenNhanVien</td>
+            <td>@item.SDT</td>
+            <td>@item.NgaySinh</td>
+            <td>
+                <a href="~/Admin/NHAN_VIEN/CapNhatAnh?Username=@item.Username"><img src="@item.HinhAnh" style="height:100px; width:100px" /></a> 
+            </td>
+            <td>
+                @* Nút Edit *@
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
 
-                    @* Nút Delete *@
-                    @Html.ActionLink("Delete", "Delete", new { id = nhanVien.ID }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');" })
-                </td>
-            </tr>
+                @* Nút Delete *@
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');" })
+            </td>
+        </tr>
         }
     </tbody>
 </table>

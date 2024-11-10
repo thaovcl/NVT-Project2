@@ -16,8 +16,8 @@ namespace NguyenVanThao_2210900125_Project2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "NguyenVanThao-2210900125-Project2.Controllers" }
+                defaults: new { controller = "Home", action = "TrangChu", id = UrlParameter.Optional },
+                namespaces: new[] { "NguyenVanThao_2210900125_Project2.Controllers" }
             );
         }
     }
