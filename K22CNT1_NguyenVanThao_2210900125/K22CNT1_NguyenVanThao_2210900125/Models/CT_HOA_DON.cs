@@ -20,6 +20,7 @@ namespace K22CNT1_NguyenVanThao_2210900125.Models
         public Nullable<double> DonGia { get; set; }
         public Nullable<double> ThanhTien { get; set; }
         public Nullable<byte> TrangThai { get; set; }
+        public Nullable<int> SoLuong { get; set; }
     
         public virtual HOA_DON HOA_DON { get; set; }
         public virtual TOUR TOUR { get; set; }

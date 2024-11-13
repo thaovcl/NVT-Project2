@@ -15,6 +15,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HoaDonID" Type="int" />
     <Property Name="TourID" Type="int" />
+    <Property Name="SoLuong" Type="int" />
     <Property Name="DonGia" Type="float" />
     <Property Name="ThanhTien" Type="float" />
     <Property Name="TrangThai" Type="tinyint" />
@@ -24,11 +25,15 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Ma_hoa_don" Type="int" />
+    <Property Name="Ma_hoa_don" Type="varchar" MaxLength="255" />
     <Property Name="Ma_KH" Type="int" />
+    <Property Name="Ho_ten" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Dien_thoai" Type="varchar" MaxLength="10" />
+    <Property Name="Dia_chi" Type="nvarchar" MaxLength="255" />
     <Property Name="Ma_dat_tour" Type="int" />
     <Property Name="Ngay_thanh_toan" Type="datetime" />
-    <Property Name="Tong_tien" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Tong_tien" Type="float" />
     <Property Name="Phuong_thuc" Type="varchar" MaxLength="50" />
     <Property Name="Trang_thai" Type="tinyint" />
   </EntityType>
@@ -37,9 +42,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Ma_KH" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="Ho_ten" Type="varchar" MaxLength="100" />
-    <Property Name="Dia_chi" Type="varchar" MaxLength="200" />
+    <Property Name="Ma_KH" Type="int" />
+    <Property Name="Ho_ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="Dia_chi" Type="varchar" MaxLength="255" />
     <Property Name="Dien_thoai" Type="varchar" MaxLength="30" />
     <Property Name="Ngay_sinh" Type="datetime" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
@@ -84,11 +89,12 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ma_Tour" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="Ten_tour" Type="varchar" MaxLength="100" />
+    <Property Name="Ten_tour" Type="nvarchar" MaxLength="100" />
     <Property Name="Mo_ta" Type="text" />
     <Property Name="Ma_loai" Type="int" />
-    <Property Name="Gia_tour" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Gia_tour" Type="float" />
     <Property Name="So_nguoi" Type="int" />
+    <Property Name="Ngay_dat" Type="datetime" />
     <Property Name="Thoi_gian" Type="float" />
     <Property Name="Diem_khoi_hanh" Type="varchar" MaxLength="100" />
     <Property Name="Diem_den" Type="varchar" MaxLength="100" />

@@ -1,11 +1,23 @@
-﻿<!DOCTYPE html>
+﻿@using K22CNT1_NguyenVanThao_2210900125.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - K22CNT1-Nguyễn Văn Thạo-2210900125-Project2</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../../Scripts/LayoutTravel/assets/css/header.css">
+    <link rel="stylesheet" href="~/Content/footer.css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar-inverse {
+            background-color: #003366; /* Even darker blue background color */
+            border-color: #003366; /* Optional: set the border color as well */
+        }
+    </style>
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -16,38 +28,119 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nguyễn Văn Thạo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Travel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Loại Tour", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Tour", "Index", "NVT_TOURs")</li>
-                    <li>@Html.ActionLink("Giỏ hàng", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Khách sạn", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Vé máy bay", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Vé xe khách", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Đặt Tour", "Index", "NVT_TOURs")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hỗ trợ <i class="fa fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Trợ giúp", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Khuyến mãi", "Index", "Home")</li>
                 </ul>
-                <div class="navbar-form navbar-right">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-                <div class="d-flex mx-2">
-                    <a href="#" class="btn btn-primary mx-1">Đăng ký</a>
-                    <a href="#" class="btn btn-success">Đăng nhập</a>
-                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["KhachHang"] != null)
+                    {
+                        var khachHang = (KHACH_HANG)Session["KhachHang"];
+                        <li class="nav-item user-greeting">
+                            <span class="text-white">Xin chào, @khachHang.Ho_ten!</span>
+                        </li>
+                        <li class="nav-item ml-auto">
+                            <a class="btn btn-danger" href="@Url.Action("Logout", "NVT_KHACH_HANG")">Đăng Xuất</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <div class="navbar-form navbar-right" style="display: inline-flex; align-items: center;">
+                                <form class="d-flex" role="search" style="margin-right: 10px;">
+                                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                                </form>
+                                <a href="/nvt_khach_hang/Login" class="btn btn-success mx-2 header__action-link">
+                                    <i class="fa-solid fa-user"></i>
+                                    Đăng Nhập
+                                </a>
+                                <a href="/nvt_khach_hang/Register" class="btn btn-primary mx-1 header__action-button">Đăng Ký</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <!-- Footer -->
+
     </div>
+    <footer>
+        <div class="footer-main">
+            <div class="row">
+                <!-- Column 1: Logo and Info -->
+                <div class="col-md-3">
+                    <h5>Về chúng tôi</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Sản phẩm -->
+                <div class="col-md-3">
+                    <h5>Sản phẩm</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Tour du lịch</a></li>
+                        <li><a href="#">Khách sạn</a></li>
+                        <li><a href="#">Vé máy bay</a></li>
+                        <li><a href="#">Vé xe khách</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Liên hệ -->
+                <div class="col-md-3">
+                    <h5>Liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Trợ giúp</a></li>
+                        <li><a href="#">Liên hệ với chúng tôi</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Các liên kết hữu ích -->
+                <div class="col-md-3">
+                    <h5>Liên kết hữu ích</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều kiện giao dịch</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+            <p>&copy; @DateTime.Now.Year - K22CNT1-Nguyễn Văn Thạo-2210900125-Project2</p>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Content/JavaScript.js"></script>
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
+

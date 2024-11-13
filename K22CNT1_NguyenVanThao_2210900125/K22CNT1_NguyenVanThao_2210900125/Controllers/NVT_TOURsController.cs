@@ -36,89 +36,6 @@ namespace K22CNT1_NguyenVanThao_2210900125.Controllers
             return View(tOUR);
         }
 
-        // GET: NVT_TOURs/Create
-        public ActionResult Create()
-        {
-            ViewBag.Ma_loai = new SelectList(db.LOAI_TOUR, "ID", "Ma_loai");
-            return View();
-        }
-
-        // POST: NVT_TOURs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Ma_Tour,Ten_tour,Mo_ta,Ma_loai,Gia_tour,So_nguoi,Thoi_gian,Diem_khoi_hanh,Diem_den,Hinh_anh,Trang_thai")] TOUR tOUR)
-        {
-            if (ModelState.IsValid)
-            {
-                db.TOURs.Add(tOUR);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.Ma_loai = new SelectList(db.LOAI_TOUR, "ID", "Ma_loai", tOUR.Ma_loai);
-            return View(tOUR);
-        }
-
-        // GET: NVT_TOURs/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TOUR tOUR = db.TOURs.Find(id);
-            if (tOUR == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Ma_loai = new SelectList(db.LOAI_TOUR, "ID", "Ma_loai", tOUR.Ma_loai);
-            return View(tOUR);
-        }
-
-        // POST: NVT_TOURs/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Ma_Tour,Ten_tour,Mo_ta,Ma_loai,Gia_tour,So_nguoi,Thoi_gian,Diem_khoi_hanh,Diem_den,Hinh_anh,Trang_thai")] TOUR tOUR)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(tOUR).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.Ma_loai = new SelectList(db.LOAI_TOUR, "ID", "Ma_loai", tOUR.Ma_loai);
-            return View(tOUR);
-        }
-
-        // GET: NVT_TOURs/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TOUR tOUR = db.TOURs.Find(id);
-            if (tOUR == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tOUR);
-        }
-
-        // POST: NVT_TOURs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            TOUR tOUR = db.TOURs.Find(id);
-            db.TOURs.Remove(tOUR);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {
@@ -128,5 +45,6 @@ namespace K22CNT1_NguyenVanThao_2210900125.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

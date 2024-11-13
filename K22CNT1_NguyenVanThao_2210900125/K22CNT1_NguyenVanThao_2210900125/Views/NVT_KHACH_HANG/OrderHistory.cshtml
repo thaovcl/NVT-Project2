@@ -1,0 +1,35 @@
+﻿@using K22CNT1_NguyenVanThao_2210900125.ViewModel
+@model IEnumerable<K22CNT1_NguyenVanThao_2210900125.ViewModel.OrderHistoryViewModel>
+
+<h2>Lịch sử Đơn Hàng</h2>
+@foreach (var order in Model)
+{
+<h3>Đơn hàng - Mã: @order.HoaDon.Ma_hoa_don</h3>
+<p><strong>Ngày thanh toán:</strong> @order.HoaDon.Ngay_thanh_toan</p>
+<p><strong>Trạng thái:</strong> @(order.HoaDon.Trang_thai == 0 ? "Đang xử lý" : "Đã hoàn thành")</p>
+<p><strong>Tổng tiền:</strong> @order.HoaDon.Tong_tien VNĐ</p>
+
+<h4>Chi tiết sản phẩm</h4>
+<table class="table" id="orderDetailsTable">
+    <thead>
+        <tr>
+            <th>Tên tour</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in order.ChiTietHoaDon)
+        {
+            <tr class="order-item">
+                <td>@item.TOUR.Ten_tour</td>
+                <td class="price" data-price="@item.TOUR.Gia_tour">@item.TOUR.Gia_tour VNĐ</td>
+                <td class="quantity" data-quantity="@item.TOUR.So_nguoi">@item.TOUR.So_nguoi</td>
+                <td class="total-price">VNĐ</td> <!-- Chỗ này sẽ được tính toán -->
+            </tr>
+}
+    </tbody>
+</table>
+}
+

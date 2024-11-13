@@ -16,7 +16,8 @@ namespace K22CNT1_NguyenVanThao_2210900125
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "K22CNT1_NguyenVanThao_2210900125.Controllers" }
             );
         }
     }

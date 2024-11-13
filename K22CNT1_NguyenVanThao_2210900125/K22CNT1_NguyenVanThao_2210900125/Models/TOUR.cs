@@ -25,13 +25,14 @@ namespace K22CNT1_NguyenVanThao_2210900125.Models
         public string Ten_tour { get; set; }
         public string Mo_ta { get; set; }
         public Nullable<int> Ma_loai { get; set; }
-        public Nullable<decimal> Gia_tour { get; set; }
+        public Nullable<double> Gia_tour { get; set; }
         public Nullable<int> So_nguoi { get; set; }
         public Nullable<double> Thoi_gian { get; set; }
         public string Diem_khoi_hanh { get; set; }
         public string Diem_den { get; set; }
         public string Hinh_anh { get; set; }
         public Nullable<byte> Trang_thai { get; set; }
+        public Nullable<System.DateTime> Ngay_dat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_HOA_DON> CT_HOA_DON { get; set; }

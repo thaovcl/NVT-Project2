@@ -21,7 +21,7 @@ namespace K22CNT1_NguyenVanThao_2210900125.Models
         }
     
         public int ID { get; set; }
-        public string Ma_KH { get; set; }
+        public Nullable<int> Ma_KH { get; set; }
         public string Ho_ten { get; set; }
         public string Dia_chi { get; set; }
         public string Dien_thoai { get; set; }

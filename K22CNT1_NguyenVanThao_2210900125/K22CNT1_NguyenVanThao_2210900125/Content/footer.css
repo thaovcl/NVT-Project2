@@ -1,0 +1,47 @@
+﻿/* footer.css */
+.footer-main {
+    background-color: #003366; /* Màu nền footer */
+    color: #fff;
+    padding: 40px 0;
+    width: 100%; /* Đảm bảo footer chiếm hết chiều rộng màn hình */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi chiều rộng */
+    padding-left:150px;
+}
+
+    .footer-main h5 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .footer-main ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+        .footer-main ul li {
+            margin-bottom: 10px;
+        }
+
+            .footer-main ul li a {
+                color: #ddd;
+                text-decoration: none;
+            }
+
+                .footer-main ul li a:hover {
+                    color: #fff;
+                    text-decoration: underline;
+                }
+
+.footer-bottom {
+    background-color: #002244; /* Màu tối hơn cho phần dưới */
+    padding: 10px;
+    color: #fff;
+    width: 100%; /* Đảm bảo footer bottom cũng chiếm hết chiều rộng */
+    box-sizing: border-box;
+}
+
+    .footer-bottom p {
+        margin: 0;
+        font-size: 14px;
+    }

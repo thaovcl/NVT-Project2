@@ -2,22 +2,40 @@
 
 @{
     ViewBag.Title = "Danh sách tour";
+    <link href="~/Content/DanhSachTour.css" rel="stylesheet" />
+    <h2>Danh Sách Tour</h2>
 }
 
-<div class="row">
+<div class="tour-list-container">
     @foreach (var item in Model)
-     {
-        <div class="col-md-3 mt-3">
-            <div class="card w-100">
-                <img src="@item.Hinh_anh" class="card-img-top" alt="@item.Ten_tour">
-                <div class="card-body">
-                    <h5 class="card-title">@item.Ten_tour</h5>
-                    <p>Giá: <span class="text-danger">@item.Gia_tour.Value.ToString("#,##0")</span></p>
-                    <a href="#" class="btn btn-primary">Đặt Tour</a>
+    {
+        <div class="tour-item">
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="@item.Hinh_anh" class="tour-img" alt="@item.Ten_tour">
+                </div>
+                <div class="tour-info">
+                    <a class="tour-title" href="#">@item.Ten_tour</a>
+                    <p class="tour-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VNĐ", item.Gia_tour)</p>
+                    <p>Số lượng: @item.So_nguoi</p>
+                    <p>
+                        Trạng thái:
+                        @if (item.Trang_thai.HasValue && item.Trang_thai.Value == 1)
+                        {
+                            <span class="badge bg-success">Còn vé</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Hết vé</span>
+                        }
+                    </p>
+                </div>
+                <div class="tour-actions">
+                    <a href="@Url.Action("AddToCart", "NVTCart", new { id = item.ID, TenTour = item.Ten_tour, HinhAnh = item.Hinh_anh, SoNguoiMua = 1, DonGiaMua = item.Gia_tour })" class="btn btn-primary">
+                        Đặt Tour
+                    </a>
                 </div>
             </div>
-        </div>  
-     }
-    
+        </div>
+    }
 </div>
-

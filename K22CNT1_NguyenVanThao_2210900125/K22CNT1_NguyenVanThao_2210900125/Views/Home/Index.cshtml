@@ -1,31 +1,154 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Travel";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<head>
+    <link rel="stylesheet" href="../../Scripts/LayoutTravel/assets/css/container.css">
+</head>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div class="container">
+    <div class="container__banner">
+        <div class="container__banner-offer-section">
+            <!-- Ưu đãi dành cho người mới -->
+            <div class="container__banner-offer-section-new">
+                <div class="container__banner-lable">
+                    <p>Ưu đãi dành cho bạn mới</p>
+                </div>
+                <div class="container__banner-offer-img">
+                    <img src="https://ik.imagekit.io/tvlk/image/imageResource/2024/08/21/1724211463738-8567988cf4e9f8ad8c25b41d894d1f3a.png?tr=q-75,w-1280" alt="Ưu đãi mới">
+                </div>
+            </div>
+            <!-- Ưu đãi Tết -->
+            <div class="container__banner-offer-section-new">
+                <div class="container__banner-lable">
+                    <p>Săn Vé Máy Bay Tết</p>
+                </div>
+                <div class="container__banner-offer-img">
+                    <img src="https://ik.imagekit.io/tvlk/image/imageResource/2024/10/28/1730105135557-1e591d7bd9f5cc5aec02b574e18f1f77.jpeg?tr=q-75,w-1280" alt="Săn Vé Tết">
+                </div>
+            </div>
+            <!-- Nâng tầm chuyến đi -->
+            <div class="container__banner-offer-section-new">
+                <div class="container__banner-lable">
+                    <p>Nâng tầm chuyến đi theo cách bạn muốn</p>
+                </div>
+                <div class="container__banner-offer-animate">
+                    <div class="banner-animate">
+                        <a href="#" class="banner-item">
+                            <img src="../../Scripts/LayoutTravel/assets/img/banner1.jpg" alt="Điểm đến 1">
+                            <p>Chuyến đi và Danh thắng</p>
+                        </a>
+                    </div>
+                    <div class="banner-animate">
+                        <a href="#" class="banner-item">
+                            <img src="../../Scripts/LayoutTravel/assets/img/banner2.jpg" alt="Điểm đến 2">
+                            <p>Fun Activities</p>
+                        </a>
+                    </div>
+                    <div class="banner-animate">
+                        <a href="#" class="banner-item">
+                            <img src="../../Scripts/LayoutTravel/assets/img/banner3.jpg" alt="Điểm đến 3">
+                            <p>Travel Insurance</p>
+                        </a>
+                    </div>
+                    <div class="banner-animate">
+                        <a href="#" class="banner-item">
+                            <img src="../../Scripts/LayoutTravel/assets/img/banner4.jpg" alt="Điểm đến 4">
+                            <p>Đặt trước, trả sau</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <!-- Các điểm đến du lịch -->
+    <div class="container__tourist">
+        <div class="container__tourist-text">
+            <h2>
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=q-40,h-24"
+                     importance="low" loading="lazy"
+                     srcset="https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=q-40,h-24 1x, https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=dpr-2,q-40,h-24 2x, https://ik.imagekit.io/tvlk/image/imageResource/2024/09/11/1726052438498-19ccbda89dcc327a785f197276581f2a.png?_src=imagekit&tr=dpr-3,q-40,h-24 3x"
+                     height="24" class="icon" alt="icon">
+                Top Điểm đến được yêu thích
+            </h2>
+        </div>
+        <div class="container__tourist-options">
+            <button class="container__tourist-options-button">Việt Nam</button>
+            <button class="container__tourist-options-button">Thái Lan</button>
+            <button class="container__tourist-options-button">Singapore</button>
+            <button class="container__tourist-options-button">Malaysia</button>
+            <button class="container__tourist-options-button">Hàn Quốc</button>
+        </div>
+        <div class="container__tourist-list">
+            <div class="container__tourist-item">
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2019/03/13/1552466374013-a57dacdbc92a9c508c1dbc4c4ceeb5cd.jpeg?tr=dpr-3,q-75,w-320" alt="Điểm đến">
+                <p class="head">Vietravel Airlines</p>
+                <div class="details">
+                    <p class="route">Hà Nội - TP HCM</p>
+                    <p class="date">22 tháng 11 2024</p>
+                    <p class="old-price">1.326.440 VND</p>
+                    <p class="new-price">1.321.360 VND</p>
+                </div>
+            </div>
+            <div class="container__tourist-item">
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2021/11/25/1637851894841-e5d7f8e7abc30ff0f1f07f6d7a64eac1.png?tr=dpr-3,q-75,w-320" alt="Điểm đến">
+                <p class="head">Vietravel Airlines</p>
+                <div class="details">
+                    <p class="route">Hà Nội - Đà Nẵng</p>
+                    <p class="date">26 tháng 11 2024</p>
+                    <p class="old-price">916.040 VND</p>
+                    <p class="new-price">892.515 VND</p>
+                </div>
+            </div>
+            <div class="container__tourist-item">
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2021/11/25/1637851505067-e5745050cc951e5c9c11b01c1d0ff920.png?tr=dpr-3,q-75,w-320" alt="Điểm đến">
+                <p class="head">Vietravel Airlines</p>
+                <div class="details">
+                    <p class="route">TP HCM - Hà Nội</p>
+                    <p class="date">27 tháng 11 2024</p>
+                    <p class="old-price">1.326.440 VND</p>
+                    <p class="new-price">1.321.360 VND</p>
+                </div>
+            </div>
+            <div class="container__tourist-item">
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2019/12/17/1576562552167-c0b352557fc46d88eb18b7966824db8f.jpeg?tr=dpr-3,q-75,w-320" alt="Điểm đến">
+                <p class="head">VietJet Air</p>
+                <div class="details">
+                    <p class="route">Đà Nẵng - Đà Lạt</p>
+                    <p class="date">17 tháng 12 2024</p>
+                    <p class="new-price">922.365 VND</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+    <!-- Các voucher du lịch -->
+    <div class="container__voucher">
+        <div class="container__voucher-options">
+            <button class="container__voucher-options-button">Vé máy bay</button>
+            <button class="container__voucher-options-button">Khách sạn</button>
+            <button class="container__voucher-options-button">Bus & Shuttle</button>
+            <button class="container__voucher-options-button">Đưa đón sân bay</button>
+            <button class="container__voucher-options-button">Điểm tham quan</button>
+        </div>
+        <div class="container__voucher-list">
+            <div class="container__voucher-item">
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2024/11/05/1730775725567-ab0cc25c744fb3aebed8a1cbe3d0471d.jpeg?tr=dpr-3,q-75,w-427" alt="Voucher 1">
+            </div>
+            <div class="container__voucher-item">
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2024/10/23/1729680281318-c4de1064c4dead7e6056fe85da0edf3e.jpeg?tr=dpr-3,q-75,w-427" alt="Voucher 2">
+            </div>
+            <div class="container__voucher-item">
+                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2024/11/10/1731204222735-d33aef46dc5478552eb2821dfe103e26.jpeg?tr=dpr-3,q-75,w-427" alt="Voucher 3">
+            </div>
+        </div>
+        <div class="container__voucher-more">
+            <button class="container__voucher-more-button">
+                See All Deals
+                <i class="fa fa-arrow-right"></i>
+            </button>
+        </div>
     </div>
 </div>

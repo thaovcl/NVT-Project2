@@ -13,6 +13,7 @@
     <EntitySetMapping Name="CT_HOA_DON">
       <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.CT_HOA_DON">
         <MappingFragment StoreEntitySet="CT_HOA_DON">
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HoaDonID" ColumnName="HoaDonID" />
           <ScalarProperty Name="TourID" ColumnName="TourID" />
@@ -28,6 +29,10 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Ma_hoa_don" ColumnName="Ma_hoa_don" />
           <ScalarProperty Name="Ma_KH" ColumnName="Ma_KH" />
+          <ScalarProperty Name="Ho_ten" ColumnName="Ho_ten" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Dien_thoai" ColumnName="Dien_thoai" />
+          <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
           <ScalarProperty Name="Ma_dat_tour" ColumnName="Ma_dat_tour" />
           <ScalarProperty Name="Ngay_thanh_toan" ColumnName="Ngay_thanh_toan" />
           <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
@@ -88,6 +93,7 @@
     <EntitySetMapping Name="TOURs">
       <EntityTypeMapping TypeName="NguyenVanThao_K22CNT1_Project2Model.TOUR">
         <MappingFragment StoreEntitySet="TOUR">
+          <ScalarProperty Name="Ngay_dat" ColumnName="Ngay_dat" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Ma_Tour" ColumnName="Ma_Tour" />
           <ScalarProperty Name="Ten_tour" ColumnName="Ten_tour" />

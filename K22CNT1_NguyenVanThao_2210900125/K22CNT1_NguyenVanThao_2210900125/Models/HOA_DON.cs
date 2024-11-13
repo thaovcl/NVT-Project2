@@ -21,11 +21,15 @@ namespace K22CNT1_NguyenVanThao_2210900125.Models
         }
     
         public int ID { get; set; }
-        public Nullable<int> Ma_hoa_don { get; set; }
+        public string Ma_hoa_don { get; set; }
         public Nullable<int> Ma_KH { get; set; }
+        public string Ho_ten { get; set; }
+        public string Email { get; set; }
+        public string Dien_thoai { get; set; }
+        public string Dia_chi { get; set; }
         public Nullable<int> Ma_dat_tour { get; set; }
         public Nullable<System.DateTime> Ngay_thanh_toan { get; set; }
-        public Nullable<decimal> Tong_tien { get; set; }
+        public Nullable<double> Tong_tien { get; set; }
         public string Phuong_thuc { get; set; }
         public Nullable<byte> Trang_thai { get; set; }
     

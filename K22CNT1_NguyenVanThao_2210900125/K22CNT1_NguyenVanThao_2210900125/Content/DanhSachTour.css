@@ -1,0 +1,91 @@
+﻿/* DanhSachTour.css */
+
+/* Container chính của danh sách tour */
+.tour-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cột tự động căn chỉnh phù hợp với kích thước màn hình */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Mỗi item trong danh sách tour */
+.tour-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center; /* Căn giữa toàn bộ nội dung bên trong */
+}
+
+    .tour-item:hover {
+        transform: translateY(-5px); /* Hiệu ứng hover nâng item lên */
+    }
+
+/* Thẻ card chứa thông tin tour */
+.tour-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Ảnh tour */
+.tour-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.tour-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+/* Thông tin tour */
+.tour-info {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.tour-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center; /* Căn giữa tiêu đề */
+}
+
+.tour-price {
+    font-size: 16px;
+    color: #e53935;
+    margin-bottom: 10px;
+    text-align: center; /* Căn giữa giá */
+}
+
+.tour-actions {
+    padding: 15px;
+    background-color: #f4f4f4;
+    text-align: center; /* Căn giữa các hành động */
+}
+
+    .tour-actions .btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px; /* Thêm khoảng cách cho nút */
+        border: none;
+        text-align: center;
+    }
+
+/* Căn giữa các badge trạng thái */
+.tour-info .badge {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Tạo hiệu ứng hover cho các nút */
+.tour-actions .btn:hover {
+    background-color: #007bff;
+    color: white;
+}

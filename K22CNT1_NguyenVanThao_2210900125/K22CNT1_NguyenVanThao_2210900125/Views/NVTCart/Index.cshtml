@@ -1,0 +1,141 @@
+﻿@model IEnumerable<K22CNT1_NguyenVanThao_2210900125.Models.NVTCartItem>
+
+@{
+    ViewBag.Title = "Thông tin giỏ hàng";
+}
+
+@using (Html.BeginForm("UpdateFromCart","NVTCart"))
+{
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TenTour)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HinhAnh)
+                        </th>
+                        <th>
+                            Số vé
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DonGiaMua)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ThanhTien)
+                        </th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <input type="hidden" name="ID" value="@item.ID" />
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenTour)
+                            </td>
+                            <td>
+                                <img src="@item.HinhAnh" style="width:50px" alt="@item.TenTour" />
+                            </td>
+                            <td>
+                                <input type="number" name="SoNguoiMua" id="SoNguoiMua" data-id="@item.ID"
+                                       value="@item.SoNguoiMua" style="width:50px" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DonGiaMua)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ThanhTien)
+                            </td>
+                            <td>
+                                @*@Html.ActionLink("Update", "UpDateToCart", new { id = item.ID, qty= @item.SoNguoiMua }) |*@
+                                <a href="/nvtcart/UpdateItemCart?id=@item.ID&qty=@item.SoNguoiMua"
+                                   class="btn btn-outline-light-success update">
+                                    Cập nhật
+                                </a>
+                                <a href="/nvtcart.DeleteItemCart?id=@item.ID" class="btn btn-outline-light-danger">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="/NVTCart/ThongTinThanhToan" class="btn btn-success">Thanh toán</a>
+
+            <button class="btn btn-outline-primary mx-2">Cập nhật giỏ hàng</button>
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input[type='number']").change(function () {
+                let id = $(this).attr("data-id");
+                let qty = $(this).val();
+                //tạo link update
+                let url = "/nvtcart/UpdateItemCart?id=" + id + "&qty=" + qty;
+                $(this).parent().siblings("td").children("a.update").attr('href', url);
+            })
+        });
+
+        $(document).ready(function () {
+            $("input[type='number']").change(function () {
+                let id = $(this).attr("data-id");
+                let quantity = parseInt($(this).val(), 10); // Đảm bảo quantity là số nguyên
+
+                // Kiểm tra xem quantity có phải là số hợp lệ không
+                if (isNaN(quantity) || quantity <= 0) {
+                    alert("Số lượng phải là một số lớn hơn 0.");
+                    return;
+                }
+
+                // Tạo link update
+                let url = "/Cart/UpdateItemCart?id=" + id + "&quantity=" + quantity;
+                // Tìm và cập nhật href của nút "Cập nhật" tương ứng trong cùng hàng
+                $(this).closest("tr").find("a.update").attr('href', url);
+
+                // Lấy giá trị price và kiểm tra hợp lệ
+                let priceText = $(this).closest("tr").find("td:nth-child(4)").text().replace(' VNĐ', '').trim();
+                let price = parseFloat(priceText); // Convert price thành số thực
+
+                // Kiểm tra nếu price không hợp lệ
+                if (isNaN(price)) {
+                    return;
+                }
+
+                let total = price * quantity;
+
+                // Cập nhật thành tiền ngay lập tức sau khi thay đổi số lượng
+                $(this).closest("tr").find("td:nth-child(6)").text(total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ"); // Cập nhật thành tiền
+
+                // Cập nhật lại tổng tiền của giỏ hàng
+                updateTotal();
+            });
+
+            function updateTotal() {
+                let total = 0;
+                $("tbody tr").each(function () {
+                    let rowTotalText = $(this).find("td:nth-child(6)").text().replace(' VNĐ', '').trim();
+                    let rowTotal = parseFloat(rowTotalText.replace(/,/g, '')); // Xóa dấu phẩy trước khi chuyển thành số
+                    if (!isNaN(rowTotal)) {
+                        total += rowTotal;
+                    }
+                });
+                $("h3").text("Tổng tiền: " + total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ"); // Cập nhật tổng tiền
+            }
+        });
+    </script>
+    }
